@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Video</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+</head> 
+<body>
+    <div class="container">
+        <h1>Upload Video for Analysis</h1>
+        <div class="upload-form">
+            <form action="{{ url_for('upload_video') }}" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" accept="video/*" required>
+                <button type="submit">Upload Video</button>
+            </form>
+            <p class="loading">Processing video, please wait...</p>
+        </div>
+    </div>
+</body>
+</html>

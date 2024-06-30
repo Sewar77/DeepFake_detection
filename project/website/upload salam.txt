@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Upload!</title>
+    <style>
+        
+        body {
+            margin: fixed;
+            padding: fixed;
+            background-image: url('obama.jpg'); 
+            background-size: cover;
+            font-family: Arial;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 400px;
+            padding: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.8); /* Adjust the opacity as needed */
+            border-radius: 10px;
+            text-align: center;
+            backdrop-filter: blur(2px);
+			margin-right:500px;
+        }
+
+        .container label,
+        .container input[type="file"],
+        .container button {
+            margin-top: 10px;
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            color: white; 
+            font-weight: bold;
+			font-size:25px;
+        }
+
+        .container button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            background-color: transparent; /* Make button transparent */
+            border: 1px solid white; /* Add white border */
+        }
+
+        .container button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        video {
+            width: 100%;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form id="videoForm" method="post" enctype="multipart/form-data" action="result.html">
+            <label for="video">Upload Video</label>
+            <input type="file" name="video" id="fileInput" accept="video/*"/>
+            <button type="submit">Submit</button>
+        </form>
+        <div class="video-container">
+            <video controls id="videoEl">
+                Your browser does not support the video tag
+            </video>
+        </div>
+    </div>
+
+    <script>
+        let video; // Declare the video variable
+
+        const videoEl = document.getElementById('videoEl');
+        const fileInput = document.getElementById('fileInput');
+
+        fileInput.addEventListener('change', (event) => {
+            if (event?.target?.files && event.target.files[0]) { 
+                video = event.target.files[0]; // Store the uploaded video in the 'video' variable
+                
+                videoEl.src = URL.createObjectURL(video); 
+                videoEl.load();
+            }
+        });
+    </script>
+</body>
+</html>

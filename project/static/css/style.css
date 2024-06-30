@@ -1,0 +1,66 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("C:/Users/User/Desktop/project/templates/header.png"); 
+    background-size: cover;
+    font-family: Arial;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+} 
+
+.container {
+    max-width: 400px;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+    text-align: center;
+    backdrop-filter: blur(2px);
+    margin-right: 500px;
+}
+
+.container label,
+.container input[type="file"],
+.container button {
+    margin-top: 10px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    color: black;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+a {
+    color: black;
+}
+
+.container button {
+    padding: 10px 20px;
+    border-radius: 5px;
+	position: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: transparent;
+    border: 1px solid black;
+}
+
+.container button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.video-container {
+    position: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+h1 {
+    color: black;
+}
+
+video {
+    width: 100%;
+    border-radius: 5px;
+}

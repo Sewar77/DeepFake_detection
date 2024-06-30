@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <style>
+        body {
+            background-image: url('obama.jpg'); 
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 500px;
+            padding: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.5); 
+            border-radius: 10px;
+            text-align: center;
+            backdrop-filter: blur(2px);
+			margin-right:500px;
+			margin-top: 200px;
+        }
+
+        .result {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: white; /* Set font color to white */
+        }
+
+        h1 {
+            color: white; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> The Result Of Your Video is:</h1>
+        <div class="result" id="resultText"></div>
+    </div>
+    <script>
+        const resultText = document.getElementById('resultText');
+
+        // Get the result from the query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const result = urlParams.get('result');
+
+        // Get the video URL from the query parameters
+        const video = urlParams.get('video');
+
+        // Set the result text
+        if (result === 'Real') {
+            resultText.textContent = 'Real';
+        } else if (result === 'Fake') {
+            resultText.textContent = 'Fake';
+        } else {
+            resultText.textContent = 'Unknown';
+        }
+
+        // You can use the 'video' variable to access the video URL
+        console.log('Video URL:', video);
+    </script>
+</body>
+</html>
